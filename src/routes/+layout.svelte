@@ -18,16 +18,6 @@
 	let ready = false;
 	onMount(() => {
 		ready = true;
-
-		announcements.forEach((announcement) => {
-			const fields = announcement.fields;
-			const color = fields.find((field) => field.key === 'color').value;
-
-			document.body.style.setProperty(
-				`--announcement-${announcement.id.split('/').pop()}-color`,
-				color
-			);
-		});
 	});
 </script>
 
@@ -55,13 +45,7 @@
 		<div in:fade={{ duration: 500 }}>
 			<div class="flex flex-col w-full sticky top-0 z-20">
 				{#each announcements as announcement, i}
-					<!-- bg-[hsl(355_80%_55%)] -->
-					<div
-						style="background-color: var(--announcement-{announcement.id.split('/').pop()}-color)"
-						class="block text-center p-3"
-					>
-						{announcement.fields.find((field) => field.key === 'label').value}
-					</div>
+					<Announcement {announcement} />
 				{/each}
 			</div>
 			<slot />
@@ -73,12 +57,7 @@
 		<div class="flex flex-col w-full sticky top-0 z-20">
 			{#each announcements as announcement, i}
 				<!-- bg-[hsl(355_80%_55%)] -->
-				<div
-					style="background-color: var(--announcement-{announcement.id.split('/').pop()}-color)"
-					class="block text-center p-3"
-				>
-					{announcement.fields.find((field) => field.key === 'label').value}
-				</div>
+				<Announcement {announcement} />
 			{/each}
 		</div>
 		<slot />

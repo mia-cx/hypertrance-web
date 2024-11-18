@@ -1,5 +1,18 @@
+<script lang="ts">
+	export let announcement;
 
+	const label = announcement.fields.find((field) => field.key === 'label').value;
+	const color = announcement.fields.find((field) => field.key === 'color').value;
+	const href = announcement.fields.find((field) => field.key === 'url').value;
+</script>
 
-<div class="fixed w-full top-0 z-50 flex justify-center items-center h-8 bg-primary !bg-[hsl(120_100%_25%)] text-white"> <!-- bg-[hsl(355_80%_55%)] -->
-        <span>Holiday Season — Save 35%</span>
-</div>
+{#if href}
+	<a {href} target="_blank" rel="noopener noreferrer">
+		<div class="block text-center p-3"><span>{label}</span></div>
+	</a>
+{:else}
+	<div class="block text-center p-3"><span>{label}</span></div>
+{/if}
+
+<style>
+</style>
