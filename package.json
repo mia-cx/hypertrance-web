@@ -79,5 +79,6 @@
 	"type": "module",
 	"dependencies": {
 		"@splidejs/svelte-splide": "^0.2.9"
-	}
+	},
+	"packageManager": "pnpm@9.13.2"
 }

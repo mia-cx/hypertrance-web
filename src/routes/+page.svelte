@@ -288,8 +288,15 @@
 				</div>
 				<div class="bg-primary-island p-6 lg:w-half w-full">
 					<h2
-						class="bg-text-primary block text-5xl text-bg-primary -mx-6 -ml-8 pl-14 mt-3 py-1 font-suissnord"
+						class="relative bg-text-primary block text-5xl text-bg-primary -mx-6 -ml-8 pl-14 mt-3 py-1 font-suissnord"
 					>
+						{#if collection.metadata[2]}
+							<div
+								class="absolute -top-8 left-0 w-fit h-8 p-1 bg-red-700 font-michroma font-bold text-white text-base tracking-normal"
+							>
+								NEW
+							</div>
+						{/if}
 						{collection.name}
 					</h2>
 					<p class="mt-6 py-4 mx-8 text-justify">

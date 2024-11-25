@@ -12,6 +12,9 @@ export function make() {
     }
 
     //add descriptions
+    //[0]: string - description
+    //[1]: number - in what order they will be displayed on the front page
+    //[2]: boolean | undefined - wether or not to show the [NEW] tag for a collection
     for (const collection of db.collections) {
         switch (collection.name) {
             case 'demos': {
@@ -26,7 +29,7 @@ export function make() {
             }
             case 'bass': {
                 collection.metadata[0] = `From offbeat-handsup styled basslines to arpeggiated trance basses, the hypertrance samplepack not only gives you timbres that cut, but sub basses that cleanly underpin your whole mix. All sounds are delivered with their respective presets for further customization.`;
-                collection.metadata[2] = 2;
+                collection.metadata[1] = 2;
                 break;
             }
             case 'loops': {
@@ -52,11 +55,13 @@ export function make() {
             case 'atmos': {
                 collection.metadata[0] = `With our brand new atmosphere sounds, creating introductions and melodic textures has never been easier. Every atmosphere sample comes with key and BPM info and can be perfectly looped to suit any of your textural needs.`;
                 collection.metadata[1] = 7;
+                collection.metadata[2] = true;
                 break;
             }
             case 'buildups': {
                 collection.metadata[0] = `Never lose time on making builds again. With our drag-and-drop buildups, youll be structuring out your song ideas in no time. All buildups are delivered as full samples as well as individual stems and MIDI to allow you to easily trim them to your needs.`;
                 collection.metadata[1] = 8;
+                collection.metadata[2] = true;
                 break;
             }
             case 'free updates': {
