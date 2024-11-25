@@ -8,7 +8,7 @@
 
 {#if href}
 	<a {href} target="_blank" rel="noopener noreferrer">
-		<div class="block text-center p-3 bg-primary"><span>{label}</span></div>
+		<div class="block text-center p-3"><span>{label}</span></div>
 	</a>
 {:else}
 	<div class="block text-center p-3"><span>{label}</span></div>

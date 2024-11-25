@@ -2,7 +2,11 @@ import { Collection, from_json } from '@euterpe.js/music-library';
 import * as json from './db.json';
 export function make() {
     const db = from_json(json);
-    db.add([new Collection({ songs: [], artists: [], name: 'free updates' })]);
+    db.add(
+        [
+            new Collection({ songs: [], artists: [], name: "free updates" })
+        ]
+    )
     //remove the 01, 02 ... from song names
     for (const song of db.songs) {
         //To avoid demo song
@@ -49,25 +53,14 @@ export function make() {
                 collection.metadata[1] = 6;
                 break;
             }
-            case 'atmos': {
-                collection.metadata[0] = `With our brand new atmosphere sounds, creating introductions and melodic textures has never been easier. Every atmosphere sample comes with key and BPM info and can be perfectly looped to suit any of your textural needs.`;
-                collection.metadata[1] = 7;
-                break;
-            }
-            case 'buildups': {
-                collection.metadata[0] = `Never lose time on making builds again. With our drag-and-drop buildups, youll be structuring out your song ideas in no time. All buildups are delivered as full samples as well as individual stems and MIDI to allow you to easily trim them to your needs.`;
-                collection.metadata[1] = 8;
-                break;
-            }
-            case 'free updates': {
-                collection.metadata[0] = `Couldn't find the samples you were looking for? <a href="https://discord.gg/hypertrance">Join the hypertrance Discord</a>, where we'll be pushing regular updates to the samplepack, entirely free of charge. All legitimate owners of the samplepack will be able to suggest what to include in future expansions.`;
-                collection.metadata[1] = 9;
-                break;
+            case "free updates": {
+                collection.metadata[0] = `Couldn't find the samples you were looking for? <a href="https://discord.gg/hypertrance">Join the hypertrance Discord</a>, where we'll be pushing regular updates to the samplepack, entirely free of charge. All legitimate owners of the samplepack will be able to suggest what to include in future expansions.`
+                collection.metadata[1] = 7
             }
         }
     }
     db.collections.sort((a, b) => {
         return a.metadata[1] - b.metadata[1];
     });
-    return db;
+    return db
 }
