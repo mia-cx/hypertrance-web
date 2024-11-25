@@ -24,17 +24,17 @@ export function make() {
             }
             case 'synths': {
                 collection.metadata[0] = `The hypertrance samplepack includes a wide variety of different synth sounds, each including both .wav files and presets, which work on every platform and every DAW. All sounds come pre-EQd to fit into your mix and are fully customizable for your specific needs.`;
-                collection.metadata[1] = 1;
+                collection.metadata[1] = 7;
                 break;
             }
             case 'bass': {
                 collection.metadata[0] = `From offbeat-handsup styled basslines to arpeggiated trance basses, the hypertrance samplepack not only gives you timbres that cut, but sub basses that cleanly underpin your whole mix. All sounds are delivered with their respective presets for further customization.`;
-                collection.metadata[1] = 2;
+                collection.metadata[1] = 6;
                 break;
             }
             case 'loops': {
                 collection.metadata[0] = `The quickest way from a blank project to a banging beat. Our loops come pre-mixed to turn mixing a complicated trance beat into a simple thing anyone can do. Enjoy our fully mixed loops, or assemble your own from our broad selection of over 60 drumloops.`;
-                collection.metadata[1] = 3;
+                collection.metadata[1] = 5;
                 break;
             }
             case 'kicks': {
@@ -44,23 +44,23 @@ export function make() {
             }
             case 'drums': {
                 collection.metadata[0] = `Sifting through hundreds of different claps, hats and percs, just to find one that works, can be tiring. We aim to provide you with samples that focus on doing one thing only, and doing it well. All of our drums are mixed and matched so that you can freely pick your favorite.`;
-                collection.metadata[1] = 5;
+                collection.metadata[1] = 1;
                 break;
             }
             case 'FX': {
                 collection.metadata[0] = `Looking for that huge, anthemic trance breakdown sound? We provide dozens of clean FX sounds that can be layered into one another without any effort. No more messy playlists and automations, our effect sounds work together out of the box.`;
-                collection.metadata[1] = 6;
+                collection.metadata[1] = 8;
                 break;
             }
             case 'atmos': {
                 collection.metadata[0] = `With our brand new atmosphere sounds, creating introductions and melodic textures has never been easier. Every atmosphere sample comes with key and BPM info and can be perfectly looped to suit any of your textural needs.`;
-                collection.metadata[1] = 7;
+                collection.metadata[1] = 3;
                 collection.metadata[2] = true;
                 break;
             }
             case 'buildups': {
                 collection.metadata[0] = `Never lose time on making builds again. With our drag-and-drop buildups, youll be structuring out your song ideas in no time. All buildups are delivered as full samples as well as individual stems and MIDI to allow you to easily trim them to your needs.`;
-                collection.metadata[1] = 8;
+                collection.metadata[1] = 2;
                 collection.metadata[2] = true;
                 break;
             }
