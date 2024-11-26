@@ -13,7 +13,7 @@
 		goto(cart.checkoutUrl);
 	}
 	//TODO: REMOVE THIS AFTER TESTING discount pricing
-	selectedVariant.compareAtPrice.amount = 39.99;
+	// selectedVariant.compareAtPrice.amount = 39.99;
 
 	//This is for pixel alignments on the "updated " banner
 	$: is_on_sale = selectedVariant?.compareAtPrice.amount != selectedVariant.price.amount;
