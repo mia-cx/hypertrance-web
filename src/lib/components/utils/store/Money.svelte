@@ -29,13 +29,14 @@
 			`pb-0.5`}"
 	>
 		{#if discountPrice}
-			<span class="block">
+			<span class="block -mb-1">
 				{prettyDiscountedPrice}
 			</span>
 		{/if}
 		<span
 			class:line-through={discountPrice}
-			class="inline-block text-slate-400 decoration-hyperblue-50/50 {discountPrice && `text-sm`}"
+			class="inline-block text-slate-400 decoration-hyperblue-50/50 {discountPrice &&
+				`text-sm mb-1`}"
 		>
 			{prettyPrice}
 		</span>
