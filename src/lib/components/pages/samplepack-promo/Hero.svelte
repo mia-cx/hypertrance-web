@@ -45,7 +45,7 @@
 			<!-- {#if true || (selectedVariant.compareAtPrice !== null && selectedVariant.compareAtPrice?.amount !== selectedVariant.price?.amount)} -->
 			<div class="flex justify-center text-2xl font-michroma -ml-3">
 				<button
-					class="hyper-button px-8 button-primary-inverse skew-x-[25deg] [&>*]:-skew-x-[25deg]"
+					class="hyper-button px-8 pt-3 button-primary-inverse skew-x-[25deg] [&>*]:-skew-x-[25deg]"
 					on:click={buyNow}
 				>
 					<span class="inline-block">buy now</span>
@@ -63,7 +63,7 @@
 				<a
 					href="/store/products/hypertrance-samplepack"
 					data-sveltekit-reload
-					class="inline-block text-bg-primary hover:text-black active:text-black py-1 px-8 m-2"
+					class="inline-block text-bg-primary hover:text-black active:text-black py-1 px-8 m-2 mt-0"
 					>learn more</a
 				>
 			</div>
