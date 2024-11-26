@@ -5,12 +5,18 @@
 	export let data;
 	const { product } = data;
 	const selectedVariant = product.variants.nodes[0];
+	console.log(selectedVariant);
 	async function buyNow() {
 		if (!product) throw Error('Product not found');
 		const cart = await createCart(selectedVariant.id, 1);
 		if (!cart) throw Error('Cart creation failed');
 		goto(cart.checkoutUrl);
 	}
+	//TODO: REMOVE THIS AFTER TESTING discount pricing
+	selectedVariant.compareAtPrice.amount = 39.99;
+
+	//This is for pixel alignments on the "updated " banner
+	$: is_on_sale = selectedVariant?.compareAtPrice.amount != selectedVariant.price.amount;
 </script>
 
 <div
@@ -29,66 +35,38 @@
 				class="w-full uppercase [&>*]:skew-x-[25deg] mt-4 mb-1 text-lg font-bold font-michroma whitespace-nowrap"
 			>
 				<div
-					class="w-fit bg-red-700 m-0 -translate-x-1/2 absolute left-[calc(50%-1.8rem)] -translate-y-8 md:left-0 md:translate-x-0 md:translate-y-0 md:relative md:m-0 md:ml-1 px-[1.1rem]"
+					class="w-fit bg-red-700 m-0 -translate-x-1/2 absolute left-[calc(50%-1.8rem)] -translate-y-8 md:left-0 md:translate-x-0 md:translate-y-0 md:relative md:m-0 {is_on_sale
+						? `md:ml-0.5`
+						: `md:ml-1`} {is_on_sale ? `px-[1.15rem]` : `px-[1.1rem]`}"
 				>
 					<span class="block -skew-x-[25deg] text-white"> updated november 2024 </span>
 				</div>
 			</div>
-			{#if selectedVariant.compareAtPrice !== null && selectedVariant.compareAtPrice?.amount !== selectedVariant.price?.amount}
-				<div class="flex justify-center text-sm font-michroma -ml-3">
-					<div
-						class="flex items-center px-12 py-4 skew-x-[25deg] [&>*]:-skew-x-[25deg] bg-primary-side ring-1 ring-primary"
-					>
-						<div class="absolute inset-0 -top-6 -left-3">discounted price</div>
-						<Money price={selectedVariant.price} showCurrency={true} class="text-primary" />
-					</div>
+			<!-- {#if true || (selectedVariant.compareAtPrice !== null && selectedVariant.compareAtPrice?.amount !== selectedVariant.price?.amount)} -->
+			<div class="flex justify-center text-2xl font-michroma -ml-3">
+				<button
+					class="hyper-button px-8 button-primary-inverse skew-x-[25deg] [&>*]:-skew-x-[25deg]"
+					on:click={buyNow}
+				>
+					<span class="inline-block">buy now</span>
+				</button>
 
-					<Money
-						price={selectedVariant.compareAtPrice}
-						compareAtPrice={true}
-						showCurrency={true}
-						class="flex items-center px-12 py-4 skew-x-[25deg] [&>*]:-skew-x-[25deg] ring-1 ring-primary"
-					/>
-				</div>
-
-				<div class="flex justify-center text-xl w-full">
-					<button
-						class="hyper-button flex-1 button-primary-inverse skew-x-[25deg] [&>*]:-skew-x-[25deg]"
-						on:click={buyNow}
-					>
-						<span class="inline-block">buy now</span>
-					</button>
-					<a
-						href="/store/products/hypertrance-samplepack"
-						data-sveltekit-reload
-						class="inline-block text-bg-primary hover:text-black active:text-black py-1 px-8 m-2"
-						>learn more</a
-					>
-				</div>
-			{:else}
-				<div class="flex justify-center text-2xl font-michroma -ml-3">
-					<button
-						class="hyper-button px-8 button-primary-inverse skew-x-[25deg] [&>*]:-skew-x-[25deg]"
-						on:click={buyNow}
-					>
-						<span class="inline-block">buy now</span>
-					</button>
-
-					<Money
-						price={selectedVariant.price}
-						showCurrency={true}
-						class="flex items-center h-full px-12 py-4 skew-x-[25deg] [&>*]:-skew-x-[25deg] text-base  bg-primary-side text-primary ring-1 ring-primary"
-					/>
-				</div>
-				<div class="-mb-4 text-center md:text-end text-lg">
-					<a
-						href="/store/products/hypertrance-samplepack"
-						data-sveltekit-reload
-						class="inline-block text-bg-primary hover:text-black active:text-black py-1 px-8 m-2"
-						>learn more</a
-					>
-				</div>
-			{/if}
+				<!--  -->
+				<Money
+					price={selectedVariant.price}
+					showCurrency={true}
+					discountPrice={is_on_sale ? selectedVariant?.compareAtPrice : undefined}
+					class="flex items-center h-full px-10 py-4 skew-x-[25deg] [&>*]:-skew-x-[25deg] text-base  bg-primary-side text-primary ring-1 ring-primary"
+				/>
+			</div>
+			<div class="-mb-4 text-center md:text-end text-lg">
+				<a
+					href="/store/products/hypertrance-samplepack"
+					data-sveltekit-reload
+					class="inline-block text-bg-primary hover:text-black active:text-black py-1 px-8 m-2"
+					>learn more</a
+				>
+			</div>
 		</div>
 	</div>
 </div>
