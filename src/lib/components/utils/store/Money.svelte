@@ -30,7 +30,7 @@
 	>
 		{#if discountPrice}
 			<span class="block -mb-1">
-				{prettyDiscountedPrice}
+				{prettyPrice}
 			</span>
 		{/if}
 		<span
@@ -38,7 +38,7 @@
 			class="inline-block text-slate-400 decoration-hyperblue-50/50 {discountPrice &&
 				`text-sm mb-1`}"
 		>
-			{prettyPrice}
+			{discountPrice ? prettyDiscountedPrice : prettyPrice}
 		</span>
 	</div>
 </div>
