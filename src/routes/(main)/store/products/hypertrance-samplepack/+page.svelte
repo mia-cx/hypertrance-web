@@ -14,7 +14,7 @@
 
 	// console.debug(`${id.url}${pathname}`);
 
-	console.log(product);
+	// console.log(product);
 
 	let descSplit = product.descriptionHtml.split('\n');
 

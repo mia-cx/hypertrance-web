@@ -55,7 +55,7 @@
 				use_only_pathname_url: true
 			}).build();
 
-			console.log(player);
+			// console.log(player);
 			document.body.appendChild(audio);
 
 			// audio.addEventListener('pause', () => {
